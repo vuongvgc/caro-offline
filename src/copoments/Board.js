@@ -10,7 +10,11 @@ class Board extends React.Component {
       win: '',
     };
   }
-
+  /**
+   * function: update board
+   * input: user click : index
+   * output: update squares
+   */
   handleClick(i) {
     if(!this.state.win){
       const squares = this.state.squares.slice();
@@ -24,6 +28,11 @@ class Board extends React.Component {
       });
     }
   }
+  /**
+   *function: check win when use click quare
+   *input: square preID
+   *out: update status win  
+   */
   componentDidUpdate(prevProps){
     if(this.state.squares !== prevProps.squares && this.state.win === ''){
       if (this.calculateWinner(this.state.squares, this.state.prevID)) {
@@ -34,6 +43,11 @@ class Board extends React.Component {
       }
     }
   }
+  /** 
+   * Render 1 square
+   * input: id: 1
+   * output: 1 square 
+  */
   renderSquare = (i) => {
     return (
       <Square
@@ -44,6 +58,11 @@ class Board extends React.Component {
       />
     );
   };
+  /** 
+   * render row : 20 square
+   * input: n row;
+   * output: n x 20 squares
+  */
   renderRow = (n) => {
     let rowsSquare = [];
     for (let i = n; i < 20 + n; i++) {
@@ -51,6 +70,11 @@ class Board extends React.Component {
     }
     return rowsSquare;
   };
+  /** 
+   * render board : n square
+   * input: n ;
+   * output: n  squares
+  */
   renderBoard = (n) => {
     let arrBoard = [];
     for (let i = 0; i < n; i += 20) {
@@ -64,7 +88,9 @@ class Board extends React.Component {
  * output: boolean true
  */
   calculateWinner = (squares, index) => {
+    // creat arr need to check 
     const lines = [
+      // row 
       [
         index - 4,
         index - 3,
@@ -76,6 +102,7 @@ class Board extends React.Component {
         index + 3,
         index + 4,
       ],
+      // cols 
       [
         index - 80,
         index - 60,
@@ -86,7 +113,8 @@ class Board extends React.Component {
         index + 40,
         index + 60,
         index + 80,
-      ],
+      ],    
+      // cross
       [
         index - 80 - 4,
         index - 60 - 3,
@@ -98,6 +126,7 @@ class Board extends React.Component {
         index + 60 + 3,
         index + 80 + 4,
       ],
+      // cross
       [
         index + 80 - 4,
         index + 60 - 3,
@@ -110,7 +139,7 @@ class Board extends React.Component {
         index - 80 + 4,
       ],
     ];
-  
+  // check in arr  1 -5; 2-6 ; 3-7 ; 4-8 ; 5 - 9
     // const result = [];
     for (let i = 0; i < 5; i += 1) {
       const [a, b, c, d, e] = [
@@ -121,6 +150,9 @@ class Board extends React.Component {
         lines[0][i + 4],
       ];
       const checkRow = this.checkRim([a, b, c, d]);
+    /**
+     * TH1: rows
+     */
       if (
         squares[a] &&
         squares[a] === squares[b] &&
@@ -140,7 +172,9 @@ class Board extends React.Component {
         // return result;
         return true;
       }
-  
+    /**
+     * TH2: cols
+     */
       const [aa, bb, cc, dd, ee] = [
         lines[1][i],
         lines[1][i + 1],
@@ -167,6 +201,9 @@ class Board extends React.Component {
         return true;
 
       }
+      /**
+       * TH3: cross
+       */
       const [aaa, bbb, ccc, ddd, eee] = [
         lines[2][i],
         lines[2][i + 1],
@@ -223,6 +260,9 @@ class Board extends React.Component {
     }
     return null;
   }
+  /**
+   * check chua hieu
+   */
   checkRim = (arr) => {
     if (arr[0] % 10 === 9 && Math.floor(arr[0] / 10) % 2 === 1) return false;
     if (arr[1] % 10 === 9 && Math.floor(arr[1] / 10) % 2 === 1) return false;
@@ -230,6 +270,9 @@ class Board extends React.Component {
     if (arr[3] % 10 === 9 && Math.floor(arr[3] / 10) % 2 === 1) return false;
     return true;
   };
+  // render 
+
+  
   render() {
     return <div>{this.renderBoard(400)}</div>;
   }
