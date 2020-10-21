@@ -10,11 +10,13 @@ class Board extends React.Component {
   }
  
   handleClick(i) {
-    if(calculateWinner(this.state.squares, i)){
+    if(this.calculateWinner(this.state.squares, i)){
       console.log('You win');
     }
     const squares = this.state.squares.slice();
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    if(squares[i] === null){
+      squares[i] = this.state.xIsNext ? 'X' : 'O';
+    }
     this.setState({
       squares: squares,
       xIsNext: !this.state.xIsNext,
@@ -44,6 +46,16 @@ class Board extends React.Component {
     }
     return arrBoard
   }
+  isWin = (arr) => {
+    return arr.every(el => el === 'X')
+  }
+  calculateWinner = (squares, n) => {
+    let arr = Array(5).fill(null);
+    for(let i = 0; i < 5; i ++){
+      arr[i] = arr.push(squares[n - 4+ i])
+    }
+    return this.isWin(arr);
+  }
   render(){
     return(
         <div>
@@ -54,10 +66,5 @@ class Board extends React.Component {
 
   }
 
-
-  function calculateWinner(squares, i) {
-    const lines = squares.slice(i - 4, i);
-    console.log(lines)
-    return lines.every(el => el === 'X');
-  }
+  
 export default Board;
