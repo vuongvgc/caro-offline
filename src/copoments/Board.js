@@ -58,9 +58,11 @@ class Board extends React.Component {
     }
     return arrBoard;
   };
-  isWin = (arr) => {
-    return arr.every((el) => el === "X");
-  };
+/**
+ * function: calculateWinner
+ * input: arr square, number: index
+ * output: boolean true
+ */
   calculateWinner = (squares, index) => {
     const lines = [
       [
@@ -109,7 +111,7 @@ class Board extends React.Component {
       ],
     ];
   
-    const result = [];
+    // const result = [];
     for (let i = 0; i < 5; i += 1) {
       const [a, b, c, d, e] = [
         lines[0][i],
@@ -133,9 +135,10 @@ class Board extends React.Component {
           squares[e + 1] === null ||
           squares[e + 1] === undefined)
       ) {
-        result.push(squares[a]);
-        result.push([a, b, c, d, e]);
-        return result;
+        // result.push(squares[a]);
+        // result.push([a, b, c, d, e]);
+        // return result;
+        return true;
       }
   
       const [aa, bb, cc, dd, ee] = [
@@ -158,11 +161,12 @@ class Board extends React.Component {
           squares[ee + 20] === null ||
           squares[ee + 20] === undefined)
       ) {
-        result.push(squares[aa]);
-        result.push([aa, bb, cc, dd, ee]);
-        return result;
+        // result.push(squares[aa]);
+        // result.push([aa, bb, cc, dd, ee]);
+        // return result;
+        return true;
+
       }
-  
       const [aaa, bbb, ccc, ddd, eee] = [
         lines[2][i],
         lines[2][i + 1],
@@ -184,9 +188,10 @@ class Board extends React.Component {
           squares[eee + 20 + 1] === null ||
           squares[eee + 20 + 1] === undefined)
       ) {
-        result.push(squares[aaa]);
-        result.push([aaa, bbb, ccc, ddd, eee]);
-        return result;
+        // result.push(squares[aaa]);
+        // result.push([aaa, bbb, ccc, ddd, eee]);
+        // return result;
+        return true
       }
   
       const [aaaa, bbbb, cccc, dddd, eeee] = [
@@ -210,9 +215,10 @@ class Board extends React.Component {
           squares[eeee - 20 + 1] === null ||
           squares[eeee - 20 + 1] === undefined)
       ) {
-        result.push(squares[aaaa]);
-        result.push([aaaa, bbbb, cccc, dddd, eeee]);
-        return result;
+        // result.push(squares[aaaa]);
+        // result.push([aaaa, bbbb, cccc, dddd, eeee]);
+        // return result;
+        return true
       }
     }
     return null;
