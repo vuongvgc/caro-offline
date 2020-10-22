@@ -9,8 +9,8 @@ class Game extends React.Component {
     super(props);
     this.state = {
         status: 'game caro offline',
-        nameX: 'Victor',
-        nameO: 'Vuong',
+        nameX: '',
+        nameO: '',
         isStart: false
     }
   }
@@ -36,7 +36,7 @@ class Game extends React.Component {
     }
   }
     render() {
-      const {status, nameX, nameO}  = this.state;
+      const {status, nameX, nameO, isStart}  = this.state;
       
       return (
         <div className="container">
@@ -53,7 +53,7 @@ class Game extends React.Component {
           </div>
           <div className="game">
             <div className="game-board">
-              <Board />
+              <Board startGame={isStart}/>
             </div>
             <div className="game-info">
               <div>{/* status */}</div>

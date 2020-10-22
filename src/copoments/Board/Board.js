@@ -16,7 +16,8 @@ class Board extends React.Component {
    * output: update squares
    */
   handleClick(i) {
-    if(!this.state.win){
+    console.log(!this.state.win && this.props.startGame)
+    if(!this.state.win && this.props.startGame){
       const squares = this.state.squares.slice();
       if (squares[i] === null) {
         squares[i] = this.state.xIsNext ? "X" : "O";
