@@ -33,6 +33,7 @@ class Clock extends React.Component {
         second = 0
         if(minute === 3){
             startGame = false
+            this.props.stopGame(this.state.startGame);
         }
       }
     }
@@ -41,9 +42,9 @@ class Clock extends React.Component {
       second: second,
       startGame: startGame
     }) 
-  }
+ }
   render(){
-    const {minute, second} = this.state
+    const {minute, second} = this.state;
     return (
       <div>
         <h1>Time To Player </h1>

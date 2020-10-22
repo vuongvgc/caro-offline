@@ -35,6 +35,14 @@ class Game extends React.Component {
       alert("Please enter your name")
     }
   }
+  stopGame = (value) => {
+    console.log(value);
+    if(value){
+      this.setState({
+        isStart: false
+      })
+    }
+  }
     render() {
       const {status, nameX, nameO, isStart}  = this.state;
       
@@ -49,7 +57,7 @@ class Game extends React.Component {
               <input type="button" value="Start" onClick={this.startGame} />
           </div>
           <div style={{padding: "15px"}}>
-              <Clock start={isStart}/>
+              <Clock start={isStart}  stopGame={this.stopGame}/>
           </div>
           <div className="game">
             <div className="game-board">
