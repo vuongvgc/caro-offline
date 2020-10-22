@@ -61,7 +61,7 @@ class Game extends React.Component {
           </div>
           <div className="game">
             <div className="game-board">
-              <Board startGame={isStart}/>
+              <Board startGame={isStart} stopGame={this.stopGame}/>
             </div>
             <div className="game-info">
               <div>{/* status */}</div>

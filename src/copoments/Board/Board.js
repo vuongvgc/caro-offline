@@ -38,6 +38,7 @@ class Board extends React.Component {
     if(this.state.squares !== prevProps.squares && this.state.win === ''){
       if (this.calculateWinner(this.state.squares, this.state.prevID)) {
         console.log("You win");
+        this.props.stopGame(this.state.squares[this.state.prevID])
         this.setState({
           win: this.state.squares[this.state.prevID]
         })
