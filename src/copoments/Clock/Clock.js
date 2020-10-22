@@ -3,9 +3,16 @@ class Clock extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      stopGame: false,
       minute: 0,
       second: 0,
+      startGame: this.props.start,
+    }
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.start !== prevProps.start) {
+      this.setState({
+        startGame: this.props.start
+      })
     }
   }
   componentDidMount() {
@@ -13,30 +20,27 @@ class Clock extends React.Component {
       () => this.tick(),
       50);
   }
-
   componentWillUnmount() {
     clearInterval(this.timerID);
   }
   tick() {
-    let {stopGame, minute, second} = this.state
-    if(stopGame === false){
+    let {startGame,minute, second} = this.state;
+    if(startGame){
       if(second < 60){
         second += 1
       }else if(second === 60){
         minute += 1
         second = 0
         if(minute === 3){
-            stopGame = true
+            startGame = false
         }
       }
     }
-    
-    console.log(minute)
     this.setState({
-      stopGame: stopGame,
       minute: minute,
-      second: second
-    })
+      second: second,
+      startGame: startGame
+    }) 
   }
   render(){
     const {minute, second} = this.state

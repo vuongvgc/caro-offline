@@ -49,7 +49,7 @@ class Game extends React.Component {
               <input type="button" value="Start" onClick={this.startGame} />
           </div>
           <div style={{padding: "15px"}}>
-              <Clock />
+              <Clock start={isStart}/>
           </div>
           <div className="game">
             <div className="game-board">
