@@ -12,6 +12,7 @@ class Game extends React.Component {
         nameX: '',
         nameO: '',
         isStart: false,
+        isReset: false,
         isWhoWin: '',
         timePlayerPlay: []
     }
@@ -32,6 +33,7 @@ class Game extends React.Component {
     if(nameX !== '' && nameO !== ''){
       this.setState({
         isStart: true,
+        isReset: !isReset,
         isWhoWin: '',
         timePlayerPlay: []
       })
@@ -52,9 +54,6 @@ class Game extends React.Component {
     this.setState({
       timePlayerPlay: [minute, second]
     })
-  }
-  resetGame = () => {
-    console.log("Reset")
   }
     render() {
       const {status, nameX, nameO, isStart, isWhoWin, timePlayerPlay, isReset}  = this.state;

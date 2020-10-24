@@ -15,6 +15,13 @@ class Clock extends React.Component {
         startGame: this.props.start,
       })
     }
+    if(this.props.resetGame !== prevProps.resetGame){
+      this.setState({
+        minute: 0,
+        second: 0,
+        startGame: this.props.start,
+      })
+    }
   }
   componentDidMount() {
     this.timerID = setInterval(
