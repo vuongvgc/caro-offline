@@ -12,7 +12,7 @@ class Clock extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.start !== prevProps.start) {
       this.setState({
-        startGame: this.props.start
+        startGame: this.props.start,
       })
     }
   }
@@ -35,6 +35,8 @@ class Clock extends React.Component {
         if(minute === 3){
             startGame = false
             this.props.stopGame("draw");
+            minute = 0;
+            second = 0;
         }
       }
     }else {
