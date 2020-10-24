@@ -44,6 +44,14 @@ class Board extends React.Component {
         })
       }
     }
+    if(this.props.resetGame !== prevProps.resetGame) {
+        this.setState({
+          squares: Array(900).fill(null),
+          xIsNext: true,
+          prevID: '',
+          win: '',
+        })
+    }
   }
   /** 
    * Render 1 square

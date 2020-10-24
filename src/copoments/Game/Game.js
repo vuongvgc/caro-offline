@@ -67,9 +67,6 @@ class Game extends React.Component {
               <PlayerX value={nameX} handleChangeInput={this.handleChangeInput} />
               <PlayerO value={nameO} handleChangeInput={this.handleChangeInput}/>
               <input type="button" value="Start" onClick={this.startGame}  />
-              <form style={{padding: "15px"}}>
-                <button type="submit" onClick={this.resetGame}>ResetGame</button>
-              </form>
           </div>
           <div style={{padding: "10px"}}>
               <Clock start={isStart}  stopGame={this.stopGame} timePlay={this.timePlay} resetGame={isReset}/>
