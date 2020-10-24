@@ -1,4 +1,8 @@
 import React from 'react';
+/**
+ * Status
+ * Play Game, Win, OverTime
+ */
 function Status(props){
   let {playerWin, timePlayerPlay, nameX, nameO} = props
   let status = playerWin !== '' 

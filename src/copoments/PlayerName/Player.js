@@ -1,4 +1,7 @@
 import React from 'react';
+/**
+ * Player Game
+ */
 function Player(props) {
     return(
         <div>

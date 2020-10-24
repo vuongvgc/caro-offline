@@ -1,5 +1,8 @@
 import React from 'react';
 import Player from './Player';
+/**
+ * Player Game O
+ */
 class PlayerO extends React.Component {
     ChangeName = (event) => {
         this.props.handleChangeInput(event.target.value, 'O')

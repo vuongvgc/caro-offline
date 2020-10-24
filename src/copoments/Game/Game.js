@@ -4,6 +4,10 @@ import Status from '../Status/Status';
 import PlayerX from '../PlayerName/PlayerX';
 import PlayerO from '../PlayerName/PlayerO';
 import Clock from '../Clock/Clock';
+/**
+ * Manager Game
+ * Board, Status, Time, Player
+ */
 class Game extends React.Component {
   constructor(props){
     super(props);
