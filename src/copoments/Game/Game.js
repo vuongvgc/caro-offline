@@ -28,10 +28,12 @@ class Game extends React.Component {
     }
   }
   startGame = () => {
-    const {nameX, nameO} = this.state;
+    const {nameX, nameO, isReset} = this.state;
     if(nameX !== '' && nameO !== ''){
       this.setState({
-        isStart: true
+        isStart: true,
+        isWhoWin: '',
+        timePlayerPlay: []
       })
     }else{
       alert("Please enter your name")
@@ -51,8 +53,11 @@ class Game extends React.Component {
       timePlayerPlay: [minute, second]
     })
   }
+  resetGame = () => {
+    console.log("Reset")
+  }
     render() {
-      const {status, nameX, nameO, isStart, isWhoWin, timePlayerPlay}  = this.state;
+      const {status, nameX, nameO, isStart, isWhoWin, timePlayerPlay, isReset}  = this.state;
       
       return (
         <div className="container">
@@ -62,19 +67,19 @@ class Game extends React.Component {
           <div style={{padding: "15px"}} className="player">
               <PlayerX value={nameX} handleChangeInput={this.handleChangeInput} />
               <PlayerO value={nameO} handleChangeInput={this.handleChangeInput}/>
-              <input type="button" value="Start" onClick={this.startGame} />
+              <input type="button" value="Start" onClick={this.startGame}  />
+              <form style={{padding: "15px"}}>
+                <button type="submit" onClick={this.resetGame}>ResetGame</button>
+              </form>
           </div>
-          <div style={{padding: "15px"}}>
-              <Clock start={isStart}  stopGame={this.stopGame} timePlay={this.timePlay}/>
+          <div style={{padding: "10px"}}>
+              <Clock start={isStart}  stopGame={this.stopGame} timePlay={this.timePlay} resetGame={isReset}/>
           </div>
           <div className="game">
             <div className="game-board">
-              <Board startGame={isStart} stopGame={this.stopGame}/>
+              <Board startGame={isStart} stopGame={this.stopGame} resetGame={isReset}/>
             </div>
-            <div className="game-info">
-              <div>{/* status */}</div>
-            </div>
-        </div>
+          </div>
         </div>
         
       );
