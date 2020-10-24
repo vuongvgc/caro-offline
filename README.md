@@ -3,7 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Project setup
 
 ### `npm install`
-Install the dependencies in the local node_modules folder.
+Install the dependencies related package.json and save in the local node_modules folder.
 
 ## Available Scripts
 
