@@ -4,7 +4,7 @@ class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      squares: Array(400).fill(null),
+      squares: Array(900).fill(null),
       xIsNext: true,
       prevID: '',
       win: '',
@@ -67,7 +67,7 @@ class Board extends React.Component {
   */
   renderRow = (n) => {
     let rowsSquare = [];
-    for (let i = n; i < 20 + n; i++) {
+    for (let i = n; i < 30 + n; i++) {
       rowsSquare.push(this.renderSquare(i));
     }
     return rowsSquare;
@@ -79,7 +79,7 @@ class Board extends React.Component {
   */
   renderBoard = (n) => {
     let arrBoard = [];
-    for (let i = 0; i < n; i += 20) {
+    for (let i = 0; i < n; i += 30) {
       arrBoard.push(this.renderRow(i));
     }
     return arrBoard;
@@ -106,39 +106,39 @@ class Board extends React.Component {
       ],
       // cols 
       [
-        index - 80,
+        index - 120,
+        index - 90,
         index - 60,
-        index - 40,
-        index - 20,
+        index - 30,
         index,
-        index + 20,
-        index + 40,
+        index + 30,
         index + 60,
-        index + 80,
+        index + 90,
+        index + 120,
       ],    
       // cross
       [
-        index - 80 - 4,
-        index - 60 - 3,
-        index - 40 - 2,
-        index - 20 - 1,
+        index - 120 - 4,
+        index - 90 - 3,
+        index - 60 - 2,
+        index - 30 - 1,
         index,
-        index + 20 + 1,
-        index + 40 + 2,
-        index + 60 + 3,
-        index + 80 + 4,
+        index + 30 + 1,
+        index + 60 + 2,
+        index + 90 + 3,
+        index + 120 + 4,
       ],
       // cross
       [
-        index + 80 - 4,
-        index + 60 - 3,
-        index + 40 - 2,
-        index + 20 - 1,
+        index + 120 - 4,
+        index + 90 - 3,
+        index + 60 - 2,
+        index + 30 - 1,
         index,
-        index - 20 + 1,
-        index - 40 + 2,
+        index - 120 + 1,
+        index - 90 + 2,
         index - 60 + 3,
-        index - 80 + 4,
+        index - 30 + 4,
       ],
     ];
   // check in arr  1 -5; 2-6 ; 3-7 ; 4-8 ; 5 - 9
@@ -190,12 +190,12 @@ class Board extends React.Component {
         squares[bb] === squares[cc] &&
         squares[cc] === squares[dd] &&
         squares[dd] === squares[ee] &&
-        (squares[aa - 20] === squares[aa] ||
-          squares[aa - 20] === null ||
-          squares[aa - 20] === undefined ||
-          squares[ee + 20] === squares[aa] ||
-          squares[ee + 20] === null ||
-          squares[ee + 20] === undefined)
+        (squares[aa - 30] === squares[aa] ||
+          squares[aa - 30] === null ||
+          squares[aa - 30] === undefined ||
+          squares[ee + 30] === squares[aa] ||
+          squares[ee + 30] === null ||
+          squares[ee + 30] === undefined)
       ) {
         // result.push(squares[aa]);
         // result.push([aa, bb, cc, dd, ee]);
@@ -220,12 +220,12 @@ class Board extends React.Component {
         squares[ccc] === squares[ddd] &&
         squares[ddd] === squares[eee] &&
         checkRow &&
-        (squares[aaa - 20 - 1] === squares[aaa] ||
-          squares[aaa - 20 - 1] === null ||
-          squares[aaa - 20 - 1] === undefined ||
-          squares[eee + 20 + 1] === squares[aaa] ||
-          squares[eee + 20 + 1] === null ||
-          squares[eee + 20 + 1] === undefined)
+        (squares[aaa - 30 - 1] === squares[aaa] ||
+          squares[aaa - 30 - 1] === null ||
+          squares[aaa - 30 - 1] === undefined ||
+          squares[eee + 30 + 1] === squares[aaa] ||
+          squares[eee + 30 + 1] === null ||
+          squares[eee + 30 + 1] === undefined)
       ) {
         // result.push(squares[aaa]);
         // result.push([aaa, bbb, ccc, ddd, eee]);
@@ -247,12 +247,12 @@ class Board extends React.Component {
         squares[cccc] === squares[dddd] &&
         squares[dddd] === squares[eeee] &&
         checkRow &&
-        (squares[aaaa + 20 - 1] === squares[aaaa] ||
-          squares[aaaa + 20 - 1] === null ||
-          squares[aaaa + 20 - 1] === undefined ||
-          squares[eeee - 20 + 1] === squares[aaaa] ||
-          squares[eeee - 20 + 1] === null ||
-          squares[eeee - 20 + 1] === undefined)
+        (squares[aaaa + 30 - 1] === squares[aaaa] ||
+          squares[aaaa + 30 - 1] === null ||
+          squares[aaaa + 30 - 1] === undefined ||
+          squares[eeee - 30 + 1] === squares[aaaa] ||
+          squares[eeee - 30 + 1] === null ||
+          squares[eeee - 30 + 1] === undefined)
       ) {
         // result.push(squares[aaaa]);
         // result.push([aaaa, bbbb, cccc, dddd, eeee]);
@@ -276,7 +276,7 @@ class Board extends React.Component {
 
   
   render() {
-    return <div>{this.renderBoard(400)}</div>;
+    return <div>{this.renderBoard(900)}</div>;
   }
 }
 
