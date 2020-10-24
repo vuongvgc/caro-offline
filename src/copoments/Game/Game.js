@@ -11,7 +11,8 @@ class Game extends React.Component {
         status: 'game caro offline',
         nameX: '',
         nameO: '',
-        isStart: false
+        isStart: false,
+        isWhoWin: ''
     }
   }
   handleChangeInput = (value,a) => {
@@ -39,17 +40,18 @@ class Game extends React.Component {
     console.log(value);
     if(value){
       this.setState({
-        isStart: false
+        isStart: false,
+        isWhoWin: value
       })
     }
   }
     render() {
-      const {status, nameX, nameO, isStart}  = this.state;
+      const {status, nameX, nameO, isStart, isWhoWin}  = this.state;
       
       return (
         <div className="container">
           <div className="header">
-            <Status value={status} />
+            <Status value={status} playerWin={isWhoWin}/>
           </div>
           <div style={{padding: "15px"}} className="player">
               <PlayerX value={nameX} handleChangeInput={this.handleChangeInput} />
