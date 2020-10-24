@@ -12,7 +12,8 @@ class Game extends React.Component {
         nameX: '',
         nameO: '',
         isStart: false,
-        isWhoWin: ''
+        isWhoWin: '',
+        timePlayerPlay: []
     }
   }
   handleChangeInput = (value,a) => {
@@ -45,13 +46,18 @@ class Game extends React.Component {
       })
     }
   }
+  timePlay = (minute, second) => {
+    this.setState({
+      timePlayerPlay: [minute, second]
+    })
+  }
     render() {
-      const {status, nameX, nameO, isStart, isWhoWin}  = this.state;
+      const {status, nameX, nameO, isStart, isWhoWin, timePlayerPlay}  = this.state;
       
       return (
         <div className="container">
           <div className="header">
-            <Status value={status} playerWin={isWhoWin}/>
+            <Status value={status} playerWin={isWhoWin} timePlayerPlay={timePlayerPlay} nameX={nameX} nameO={nameO}/>
           </div>
           <div style={{padding: "15px"}} className="player">
               <PlayerX value={nameX} handleChangeInput={this.handleChangeInput} />
@@ -59,7 +65,7 @@ class Game extends React.Component {
               <input type="button" value="Start" onClick={this.startGame} />
           </div>
           <div style={{padding: "15px"}}>
-              <Clock start={isStart}  stopGame={this.stopGame}/>
+              <Clock start={isStart}  stopGame={this.stopGame} timePlay={this.timePlay}/>
           </div>
           <div className="game">
             <div className="game-board">
