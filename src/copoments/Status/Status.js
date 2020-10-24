@@ -10,8 +10,8 @@ function Status(props){
     :`Enter player to play game`  
   return (
     <header>
-      <h1 className="text-uppercase">{props.value}</h1>
-      <h2>{status}</h2>
+      <h2 className="text-uppercase">{props.value}</h2>
+      <p>{status}</p>
     </header>
   );
 }

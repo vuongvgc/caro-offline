@@ -58,9 +58,11 @@ class Clock extends React.Component {
   render(){
     const {minute, second} = this.state;
     return (
-      <div>
-        <h1 className="alert alert-success">Time To Player </h1>
-        <h2 className="alert alert-danger">{minute}:{second}</h2>
+      <div className="d-inline-block p-2">
+        <p>
+          <span className="alert alert-success">Time To Player </span>
+          <span className="alert alert-danger">{minute}:{second}</span>
+        </p>
       </div>
     );
   }  

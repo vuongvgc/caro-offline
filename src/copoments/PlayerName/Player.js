@@ -1,11 +1,8 @@
 import React from 'react';
 function Player(props) {
-    const el = {
-        padding: "15px 20px"
-    }
     return(
         <div>
-            <form style={el} className="form">
+            <form className="m-1">
                 <label className="btn btn-primary" style={{marginRight: "15px"}}>
                     Player {props.symbol}:
                 </label>

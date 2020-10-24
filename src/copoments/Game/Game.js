@@ -61,19 +61,39 @@ class Game extends React.Component {
       return (
         <div className="container game__app">
           <div className="header alert alert-success">
-            <Status value={status} playerWin={isWhoWin} timePlayerPlay={timePlayerPlay} nameX={nameX} nameO={nameO}/>
+            <Status 
+                  value={status} 
+                  playerWin={isWhoWin} 
+                  timePlayerPlay={timePlayerPlay} 
+                  nameX={nameX} 
+                  nameO={nameO}/>
           </div>
-          <div style={{padding: "15px"}} className="player row justify-content-center">
-              <PlayerX value={nameX} handleChangeInput={this.handleChangeInput} />
-              <PlayerO value={nameO} handleChangeInput={this.handleChangeInput}/>
+          <div 
+              className="player row justify-content-center">
+              <PlayerX  
+                      value={nameX} 
+                      handleChangeInput={this.handleChangeInput} />
+              <PlayerO  
+                      value={nameO} 
+                      handleChangeInput={this.handleChangeInput}/>
           </div>
-          <input className="btn btn-success " type="button" value="Start" onClick={this.startGame}  />
-          <div  style={{padding: "10px"}}>
-              <Clock start={isStart}  stopGame={this.stopGame} timePlay={this.timePlay} resetGame={isReset}/>
+          <input  
+                className="btn btn-success m-2" 
+                type="button" value="Start" 
+                onClick={this.startGame}  />
+          <div>
+              <Clock  
+                    start={isStart}  
+                    stopGame={this.stopGame} 
+                    timePlay={this.timePlay} 
+                    resetGame={isReset}/>
           </div>
           <div className="game">
             <div className="game-board">
-              <Board startGame={isStart} stopGame={this.stopGame} resetGame={isReset}/>
+              <Board 
+                    startGame={isStart} 
+                    stopGame={this.stopGame} 
+                    resetGame={isReset}/>
             </div>
           </div>
         </div>

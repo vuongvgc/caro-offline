@@ -284,7 +284,7 @@ class Board extends React.Component {
 
   
   render() {
-    return <div>{this.renderBoard(900)}</div>;
+    return <div className="Board-game">{this.renderBoard(900)}</div>;
   }
 }
 
