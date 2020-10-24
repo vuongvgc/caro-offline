@@ -17,6 +17,9 @@ class Game extends React.Component {
         timePlayerPlay: []
     }
   }
+  /**
+   * func: change name of player
+   */
   handleChangeInput = (value,a) => {
     if(a === 'X') {
       this.setState({
@@ -28,6 +31,9 @@ class Game extends React.Component {
       })
     }
   }
+  /**
+   * func: Start Game when click start and Reset game
+   */
   startGame = () => {
     const {nameX, nameO, isReset} = this.state;
     if(nameX !== '' && nameO !== ''){
@@ -41,6 +47,9 @@ class Game extends React.Component {
       alert("Please enter your name")
     }
   }
+   /**
+   * func: Stop game when player win or over time
+   */
   stopGame = (value) => {
     console.log(value);
     if(value){
@@ -50,6 +59,9 @@ class Game extends React.Component {
       })
     }
   }
+  /**
+   * func: Give Time player 
+   */
   timePlay = (minute, second) => {
     this.setState({
       timePlayerPlay: [minute, second]

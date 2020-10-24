@@ -1,5 +1,8 @@
 import React from "react";
 import Square from "./Square";
+/**
+ * class: Board Control board of caro
+ */
 class Board extends React.Component {
   constructor(props) {
     super(props);
@@ -30,9 +33,9 @@ class Board extends React.Component {
     }
   }
   /**
-   *function: check win when use click quare
-   *input: square preID
-   *out: update status win  
+   *function: check win when use click square
+   *input: ArrSquare, preID
+   *out: update status  if win  and StopGame
    */
   componentDidUpdate(prevProps){
     if(this.state.squares !== prevProps.squares && this.state.win === ''){
@@ -64,14 +67,13 @@ class Board extends React.Component {
         key={i}
         onClick={() => this.handleClick(i)}
         value={this.state.squares[i]}
-        hienthi={i}
       />
     );
   };
   /** 
-   * render row : 20 square
+   * render row : 30 squares
    * input: n row;
-   * output: n x 20 squares
+   * output: n x 30 squares
   */
   renderRow = (n) => {
     let rowsSquare = [];
@@ -83,7 +85,7 @@ class Board extends React.Component {
   /** 
    * render board : n square
    * input: n ;
-   * output: n  squares
+   * output: n squares
   */
   renderBoard = (n) => {
     let arrBoard = [];
@@ -271,7 +273,7 @@ class Board extends React.Component {
     return null;
   }
   /**
-   * check chua hieu
+   * check touch border
    */
   checkRim = (arr) => {
     if (arr[0] % 10 === 9 && Math.floor(arr[0] / 10) % 2 === 1) return false;

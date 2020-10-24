@@ -1,4 +1,7 @@
 import React from 'react';
+/**
+ * Display Time to play in Screen
+ */
 class Clock extends React.Component {
   constructor(props){
     super(props);
@@ -9,6 +12,10 @@ class Clock extends React.Component {
       
     }
   }
+  /** 
+  *Fun: Start and Reset game when user click Start 
+  *input: isStart: true  
+  */
   componentDidUpdate(prevProps) {
     if (this.props.start !== prevProps.start) {
       this.setState({
@@ -23,14 +30,24 @@ class Clock extends React.Component {
       })
     }
   }
+  /**
+   * Func: set timer : 1000 -> 1s 
+   */
   componentDidMount() {
     this.timerID = setInterval(
       () => this.tick(),
-      200);
+      1000);
   }
+  /**
+   * Func: Clear timer 
+   */
   componentWillUnmount() {
     clearInterval(this.timerID);
   }
+  /**
+   * Func: when 1s second + 1 ; 60second = 1 minute 
+   * Func: Stop game when time 20 minute
+   */
   tick() {
     let {startGame,minute, second} = this.state;
     if(startGame){
@@ -39,7 +56,7 @@ class Clock extends React.Component {
       }else if(second === 60){
         minute += 1
         second = 0
-        if(minute === 3){
+        if(minute === 20){
             startGame = false
             this.props.stopGame("draw");
             minute = 0;
