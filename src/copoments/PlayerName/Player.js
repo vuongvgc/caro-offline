@@ -6,10 +6,10 @@ function Player(props) {
     return(
         <div>
             <form style={el} className="form">
-                <label style={{marginRight: "15px"}}>
+                <label className="btn btn-primary" style={{marginRight: "15px"}}>
                     Player {props.symbol}:
                 </label>
-                <input type="text"  value={props.value} onChange={props.handleChangeInput} />
+                <input className="form-control" type="text"  value={props.value} onChange={props.handleChangeInput} />
             </form>
         </div>
         

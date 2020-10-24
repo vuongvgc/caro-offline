@@ -59,16 +59,16 @@ class Game extends React.Component {
       const {status, nameX, nameO, isStart, isWhoWin, timePlayerPlay, isReset}  = this.state;
       
       return (
-        <div className="container">
-          <div className="header">
+        <div className="container game__app">
+          <div className="header alert alert-success">
             <Status value={status} playerWin={isWhoWin} timePlayerPlay={timePlayerPlay} nameX={nameX} nameO={nameO}/>
           </div>
-          <div style={{padding: "15px"}} className="player">
+          <div style={{padding: "15px"}} className="player row justify-content-center">
               <PlayerX value={nameX} handleChangeInput={this.handleChangeInput} />
               <PlayerO value={nameO} handleChangeInput={this.handleChangeInput}/>
-              <input type="button" value="Start" onClick={this.startGame}  />
           </div>
-          <div style={{padding: "10px"}}>
+          <input className="btn btn-success " type="button" value="Start" onClick={this.startGame}  />
+          <div  style={{padding: "10px"}}>
               <Clock start={isStart}  stopGame={this.stopGame} timePlay={this.timePlay} resetGame={isReset}/>
           </div>
           <div className="game">

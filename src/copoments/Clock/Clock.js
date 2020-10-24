@@ -59,8 +59,8 @@ class Clock extends React.Component {
     const {minute, second} = this.state;
     return (
       <div>
-        <h1>Time To Player </h1>
-        <h2>{minute}:{second}</h2>
+        <h1 className="alert alert-success">Time To Player </h1>
+        <h2 className="alert alert-danger">{minute}:{second}</h2>
       </div>
     );
   }  

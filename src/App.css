@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   width: 1020px;
-  overflow: auto;
+  overflow: scroll;
 }
 
 body {
@@ -27,7 +27,7 @@ ol, ul {
   background: #fff;
   border: 1px solid #999;
   float: left;
-  font-size: 10px;
+  font-size: 20px;
   font-weight: bold;
   line-height: 34px;
   height: 34px;
@@ -48,9 +48,12 @@ ol, ul {
 
 .game {
   display: flex;
+  width: 1020px;
   flex-direction: row;
+  
 }
 
 .game-info {
   margin-left: 20px;
+  
 }
