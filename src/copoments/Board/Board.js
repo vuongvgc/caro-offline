@@ -143,10 +143,10 @@ class Board extends React.Component {
         index + 60 - 2,
         index + 30 - 1,
         index,
-        index - 120 + 1,
-        index - 90 + 2,
-        index - 60 + 3,
-        index - 30 + 4,
+        index - 30 + 1,
+        index - 60 + 2,
+        index - 90 + 3,
+        index - 120 + 4,
       ],
     ];
   // check in arr  1 -5; 2-6 ; 3-7 ; 4-8 ; 5 - 9
